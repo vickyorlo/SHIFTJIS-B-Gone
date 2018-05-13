@@ -23,15 +23,17 @@ for filetype in ['*.erb', '*.erh', '*.csv', '*.config']:
                 for line in lines:
                     file.write(line)
             print(x + " converted")
-        except UnicodeDecodeError:
+        except UnicodeDecodeError as e:
             print(
                 x + 'is not a shift-jis encoded file!')
+            print(e)
             notconverted.append(x)
-
 if notconverted.__len__() > 0:
     print("not converted:")
     print(notconverted)
+    print("deal with those yourserlf")
 
+'''
     print("\nI'm going to try decoding it as a shift_jis2004 file. This may not necessarily work.")
 
     for x in notconverted:
@@ -47,3 +49,4 @@ if notconverted.__len__() > 0:
         except UnicodeDecodeError:
             print(
                 x + ' did not decode, you are on your own.')
+'''
