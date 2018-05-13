@@ -8,7 +8,7 @@ os.chdir(sys.argv[1])
 for filetype in ['*.erb', '*.erh', '*.csv', '*.config']:
     for x in glob.glob('**/' + filetype, recursive=True):
         try:
-            with codecs.open(x, mode='r', encoding='shiftjis') as file:
+            with codecs.open(x, mode='r', encoding='shift_jisx0213') as file:
                 lines = file.read()
 
             with codecs.open(x, mode='w', encoding='utf-8') as file:
