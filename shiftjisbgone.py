@@ -5,6 +5,8 @@ import os
 
 os.chdir(sys.argv[1])
 
+notconverted = list()
+
 for filetype in ['*.erb', '*.erh', '*.csv', '*.config']:
     for x in glob.glob('**/' + filetype, recursive=True):
         try:
@@ -24,3 +26,7 @@ for filetype in ['*.erb', '*.erh', '*.csv', '*.config']:
         except UnicodeDecodeError:
             print(
                 x + 'is not a shift-jis encoded file! Youre gonna have to deal with it yourself.')
+            notconverted.append(x)
+
+print("not converted:")
+print(notconverted)
